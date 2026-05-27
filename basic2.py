@@ -206,18 +206,18 @@
 # else: 
 #     print("This is a Common year.", year)
 
-# year = int(input("Enter the year:"))
+year = int(input("Enter the year:"))
 # if year < 1528:
 #     print("Not within the Gregorian calendar period.", year)
 # else:
-#     if year % 4 != 0:
-#         print("Common year")
-#     elif year %100 != 0:
-#         print("Leap year")
-#     elif year %400 != 0:
-#         print("Common year")
-#     else:
-#         print("Leap year")
+if year % 4 != 0:
+        print("Common year")
+    elif year %100 != 0:
+        print("Leap year")
+    elif year %400 != 0:
+        print("Common year")
+else:
+        print("Leap year")
 # import time
 # for counter in range(5):
 #     print(counter, "Mississippi")
