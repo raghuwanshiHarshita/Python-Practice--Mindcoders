@@ -206,18 +206,18 @@
 # else: 
 #     print("This is a Common year.", year)
 
-year = int(input("Enter the year:"))
+# year = int(input("Enter the year:"))
 # if year < 1528:
 #     print("Not within the Gregorian calendar period.", year)
 # else:
-if year % 4 != 0:
-        print("Common year")
-    elif year %100 != 0:
-        print("Leap year")
-    elif year %400 != 0:
-        print("Common year")
-else:
-        print("Leap year")
+    # if year % 4 != 0:
+    #     print("Common year")
+    # elif year %100 != 0:
+    #     print("Leap year")
+    # elif year %400 != 0:
+    #     print("Common year")
+    # else:
+    #     print("Leap year")
 # import time
 # for counter in range(5):
 #     print(counter, "Mississippi")
@@ -332,3 +332,100 @@ else:
 # list[1],list[3]= list[3],list[1]
 # print(list)
 
+#new start
+# import csv
+# records =[
+#     ['Name','Marks','City','Grade'],
+#     ['HR','99','Indore','A'],
+#     ['Isha','99','Indore','A'],
+#     ['Harshi','98','CWA','A'],
+# ]
+# search_name = input ("Enter the name:")
+# found = False
+# # with open('students.csv','w',newline='') as f:
+# #     csv.writer(f).writerows(records)
+# with open('students.csv', 'r') as f:
+#     # for row in csv.DictReader(f):
+#     #     print(f'{row["Name"]}:{row["Marks"]}marks ({row["City"]})')
+#     for row in csv.DictReader(f):
+#         if row["Name"] == search_name:
+#             print("Record found")
+#             print(row)
+#             found = True
+#             break
+# if not found:
+#     print("Student Not found!!")
+
+'''Numpy & Pandas'''
+
+import numpy as np
+
+# arr1d = np.array([1,2,3,4,5])
+# arr2d = np.array([[11,22,33],[44,55,66],[77,88,99]])
+
+# print(arr2d.shape)
+# print(arr2d.dtype)
+# print(arr2d.ndim)
+
+# zeros = np.zeros((3,4))
+# print(zeros)
+# ones = np.ones((2,5))
+# print(ones)
+# rng = np.arange(0,50,5)
+# print(rng)
+# lin = np.linspace(0,1,11)
+# print(lin)
+# random = np.random.randint(40,100,(5,3))
+# print(random)
+
+'''Vactorized method - no loop needed'''
+# arr = np.array([10,20,30,40,50])
+# print(arr*2)
+# print(arr+5)
+# print(arr**2)
+# print(arr)
+
+# marks_2d = np.array([[85,90,78],[72,88,95],[91,76,83]])
+# print(np.mean(marks_2d))
+# print(np.mean(marks_2d,axis = 1))   # mean per student
+# print(np.mean(marks_2d,axis = 0))   # mean per subject(column)
+# print(np.max(marks_2d))
+# print(np.std(marks_2d))
+
+# arr = np.array([55,66,77,88,99,98,87,78])
+# print(arr[arr> 70])    
+
+'''Pandas'''
+import pandas as pd
+data = {
+    'Name' : ['HR','Harshi','Isha','Khushi','Harsh'],
+    'Age'  : [21,21,22,22,27],
+    'Marks': [88,98,87,86,85],
+    'City' : ['Indore','Cwa','Indore','Jbl','Hyd'],
+}
+df = pd.DataFrame(data)
+print(df)
+print(df.shape)
+print(df.head(3))
+print(df.dtypes)
+print(df.describe())
+
+
+print("df['Name'] : \n" ,df['Name'])
+print(df[['Name','Marks']])
+
+print(df[df['Marks'] >=80 ])
+print(df[df['City'] == 'Indore'])
+print (df[(df['Marks'] >= 80)&(df['City'] == 'Indore')])
+
+def get_grade(x):
+    if x >= 90:
+        return 'A'
+    elif x >= 80:
+        return 'B'
+    else:
+        return 'C'
+df['Grade'] = df['Marks'].apply(get_grade)
+print(df['Grade'])\
+print('------------')
+print(df)
