@@ -210,14 +210,14 @@
 # if year < 1528:
 #     print("Not within the Gregorian calendar period.", year)
 # else:
-#     if year % 4 != 0:
-#         print("Common year")
-#     elif year %100 != 0:
-#         print("Leap year")
-#     elif year %400 != 0:
-#         print("Common year")
-#     else:
-#         print("Leap year")
+    # if year % 4 != 0:
+    #     print("Common year")
+    # elif year %100 != 0:
+    #     print("Leap year")
+    # elif year %400 != 0:
+    #     print("Common year")
+    # else:
+    #     print("Leap year")
 # import time
 # for counter in range(5):
 #     print(counter, "Mississippi")
@@ -332,3 +332,177 @@
 # list[1],list[3]= list[3],list[1]
 # print(list)
 
+#new start
+# import csv
+# records =[
+#     ['Name','Marks','City','Grade'],
+#     ['HR','99','Indore','A'],
+#     ['Isha','99','Indore','A'],
+#     ['Harshi','98','CWA','A'],
+# ]
+# search_name = input ("Enter the name:")
+# found = False
+# # with open('students.csv','w',newline='') as f:
+# #     csv.writer(f).writerows(records)
+# with open('students.csv', 'r') as f:
+#     # for row in csv.DictReader(f):
+#     #     print(f'{row["Name"]}:{row["Marks"]}marks ({row["City"]})')
+#     for row in csv.DictReader(f):
+#         if row["Name"] == search_name:
+#             print("Record found")
+#             print(row)
+#             found = True
+#             break
+# if not found:
+#     print("Student Not found!!")
+
+'''Numpy & Pandas'''
+
+# import numpy as np
+
+# arr1d = np.array([1,2,3,4,5])
+# arr2d = np.array([[11,22,33],[44,55,66],[77,88,99]])
+
+# print(arr2d.shape)
+# print(arr2d.dtype)
+# print(arr2d.ndim)
+
+# zeros = np.zeros((3,4))
+# print(zeros)
+# ones = np.ones((2,5))
+# print(ones)
+# rng = np.arange(0,50,5)
+# print(rng)
+# lin = np.linspace(0,1,11)
+# print(lin)
+# random = np.random.randint(40,100,(5,3))
+# print(random)
+
+'''Vactorized method - no loop needed'''
+# arr = np.array([10,20,30,40,50])
+# print(arr*2)
+# print(arr+5)
+# print(arr**2)
+# print(arr)
+
+# marks_2d = np.array([[85,90,78],[72,88,95],[91,76,83]])
+# print(np.mean(marks_2d))
+# print(np.mean(marks_2d,axis = 1))   # mean per student
+# print(np.mean(marks_2d,axis = 0))   # mean per subject(column)
+# print(np.max(marks_2d))
+# print(np.std(marks_2d))
+
+# arr = np.array([55,66,77,88,99,98,87,78])
+# print(arr[arr> 70])    
+
+'''Pandas'''
+# import pandas as pd
+# data = {
+#     'Name' : ['HR','Harshi','Isha','Khushi','Harsh'],
+#     'Age'  : [21,21,22,22,27],
+#     'Marks': [88,98,87,86,85],
+#     'City' : ['Indore','Cwa','Indore','Jbl','Hyd'],
+# }
+# df = pd.DataFrame(data)
+# print(df)
+# print(df.shape)
+# print(df.head(3))
+# print(df.dtypes)
+# print(df.describe())
+
+
+# print("df['Name'] : \n" ,df['Name'])
+# print(df[['Name','Marks']])
+
+# print(df[df['Marks'] >=80 ])
+# print(df[df['City'] == 'Indore'])
+# print (df[(df['Marks'] >= 80)&(df['City'] == 'Indore')])
+
+# def get_grade(x):
+#     if x >= 90:
+#         return 'A'
+#     elif x >= 80:
+#         return 'B'
+#     else:
+#         return 'C'
+# df['Grade'] = df['Marks'].apply(get_grade)
+# print(df['Grade'])
+# print('------------')
+# print(df)
+
+# city_avg = df.groupby ('City') ['Marks'].mean()
+# print(city_avg)
+# print(('Name').sort)
+
+# #Read
+# df2 = pd.read_csv('students.csv')
+# df2.to_csv('clean output.csv', index = False)
+
+# df2 = pd.read_csv('students.csv')
+# df2 ['Name'] = df2 ['Name'].str.strip()
+# print(df2)
+# df2['Marks'] = df2 ['Marks'].str.replace ('#',' ')
+# print(df2)
+# df2['City'] = df2 ['City'].str.replace ('*',' ')
+# print(df2)
+# df2.to_csv('clean output.csv', index = False)
+ 
+import matplotlib .pyplot as plt
+import numpy as np
+
+# months = ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sep','Oct','Nov','Dec']
+# sales = [45,52,48,61,58,72,69,75,68,82,90,95]
+
+# plt.figure(figsize=(12,5))
+# plt.plot(months,sales,marker ='o', color = 'steelblue' , linewidth = 2, markersize = 8)
+# plt.fill_between(months,sales,alpha  = 0.15 , color = 'steelblue')
+# plt.title('Monthly Sales 2025 (Rs. Thousand)', fontsize = 14 , fontweight = 'bold')
+# plt.xlabel('Month')
+# plt.ylabel('Sales(Rs.K)')
+# plt.grid(True , alpha = 0.3)
+# plt.tight_layout()
+# plt.show()
+
+
+# cities = ['Bhopal','Indore','Jabalpur','Gwalior','Ujjain']
+# students = [1200,2800,980,850,650]
+# colors = ['#2196F3','#4CAF50','#FF9800','#9C27B0','#F44336']
+
+# plt.figure(figsize=(9,5))
+# bars = plt.bar(cities,students,color=colors,edgecolor = 'white',linewidth = 1.5)
+# plt.title('Students Enrolled per City')
+# plt.ylabel('Number of Students')
+# for bar, val in zip (bars, students):
+#     plt.text(bar.get_x()+ bar.get_width()/2,val+30,str(val), ha ='center', fontweight = 'bold')
+# plt.tight_layout()
+# plt.show()
+
+# study_hrs = np.random.uniform(2,10,50)
+# marks = study_hrs*7+ np.random.normal(0,8,50)
+# marks = np.clip(marks,30,100)
+
+# plt.figure(figsize=(8,5))
+# plt.scatter(study_hrs,marks,c = marks,cmap = 'RdYlGn', s = 100 ,alpha=0.8)
+# plt.colorbar(label = 'Marks')
+# plt.title('Study Hours VS Exam Marks')
+# plt.xlabel('Study Hours/Day')
+# plt.ylabel('Exam Marks')
+# plt.show()
+
+import seaborn as sns
+import pandas as pd
+import numpy as np
+
+np.random.seed(42)
+
+df = pd.DataFrame({
+    'marks' :        np.random.randint(40,100,100),
+    'study_hours':   np.random.uniform(2,10,100),
+    'city':          np.random.choice(['Bhopal','Indore','Jabalpur'],100),
+    'gender':        np.random.choice(['Male','Female'], 100),
+    })
+
+plt.figure(figsize=(10,4))
+sns.histplot(df['marks'],bins = 20, kde= True, color = 'steelblue')
+plt.title('Distribution of Student Marks')
+plt.show()
