@@ -358,7 +358,7 @@
 
 '''Numpy & Pandas'''
 
-import numpy as np
+# import numpy as np
 
 # arr1d = np.array([1,2,3,4,5])
 # arr2d = np.array([[11,22,33],[44,55,66],[77,88,99]])
@@ -396,36 +396,95 @@ import numpy as np
 # print(arr[arr> 70])    
 
 '''Pandas'''
-import pandas as pd
-data = {
-    'Name' : ['HR','Harshi','Isha','Khushi','Harsh'],
-    'Age'  : [21,21,22,22,27],
-    'Marks': [88,98,87,86,85],
-    'City' : ['Indore','Cwa','Indore','Jbl','Hyd'],
-}
-df = pd.DataFrame(data)
-print(df)
-print(df.shape)
-print(df.head(3))
-print(df.dtypes)
-print(df.describe())
+# import pandas as pd
+# data = {
+#     'Name' : ['HR','Harshi','Isha','Khushi','Harsh'],
+#     'Age'  : [21,21,22,22,27],
+#     'Marks': [88,98,87,86,85],
+#     'City' : ['Indore','Cwa','Indore','Jbl','Hyd'],
+# }
+# df = pd.DataFrame(data)
+# print(df)
+# print(df.shape)
+# print(df.head(3))
+# print(df.dtypes)
+# print(df.describe())
 
 
-print("df['Name'] : \n" ,df['Name'])
-print(df[['Name','Marks']])
+# print("df['Name'] : \n" ,df['Name'])
+# print(df[['Name','Marks']])
 
-print(df[df['Marks'] >=80 ])
-print(df[df['City'] == 'Indore'])
-print (df[(df['Marks'] >= 80)&(df['City'] == 'Indore')])
+# print(df[df['Marks'] >=80 ])
+# print(df[df['City'] == 'Indore'])
+# print (df[(df['Marks'] >= 80)&(df['City'] == 'Indore')])
 
-def get_grade(x):
-    if x >= 90:
-        return 'A'
-    elif x >= 80:
-        return 'B'
-    else:
-        return 'C'
-df['Grade'] = df['Marks'].apply(get_grade)
-print(df['Grade'])\
-print('------------')
-print(df)
+# def get_grade(x):
+#     if x >= 90:
+#         return 'A'
+#     elif x >= 80:
+#         return 'B'
+#     else:
+#         return 'C'
+# df['Grade'] = df['Marks'].apply(get_grade)
+# print(df['Grade'])
+# print('------------')
+# print(df)
+
+# city_avg = df.groupby ('City') ['Marks'].mean()
+# print(city_avg)
+# print(('Name').sort)
+
+# #Read
+# df2 = pd.read_csv('students.csv')
+# df2.to_csv('clean output.csv', index = False)
+
+# df2 = pd.read_csv('students.csv')
+# df2 ['Name'] = df2 ['Name'].str.strip()
+# print(df2)
+# df2['Marks'] = df2 ['Marks'].str.replace ('#',' ')
+# print(df2)
+# df2['City'] = df2 ['City'].str.replace ('*',' ')
+# print(df2)
+# df2.to_csv('clean output.csv', index = False)
+ 
+import matplotlib .pyplot as plt
+import numpy as np
+
+# months = ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sep','Oct','Nov','Dec']
+# sales = [45,52,48,61,58,72,69,75,68,82,90,95]
+
+# plt.figure(figsize=(12,5))
+# plt.plot(months,sales,marker ='o', color = 'steelblue' , linewidth = 2, markersize = 8)
+# plt.fill_between(months,sales,alpha  = 0.15 , color = 'steelblue')
+# plt.title('Monthly Sales 2025 (Rs. Thousand)', fontsize = 14 , fontweight = 'bold')
+# plt.xlabel('Month')
+# plt.ylabel('Sales(Rs.K)')
+# plt.grid(True , alpha = 0.3)
+# plt.tight_layout()
+# plt.show()
+
+
+# cities = ['Bhopal','Indore','Jabalpur','Gwalior','Ujjain']
+# students = [1200,2800,980,850,650]
+# colors = ['#2196F3','#4CAF50','#FF9800','#9C27B0','#F44336']
+
+# plt.figure(figsize=(9,5))
+# bars = plt.bar(cities,students,color=colors,edgecolor = 'white',linewidth = 1.5)
+# plt.title('Students Enrolled per City')
+# plt.ylabel('Number of Students')
+# for bar, val in zip (bars, students):
+#     plt.text(bar.get_x()+ bar.get_width()/2,val+30,str(val), ha ='center', fontweight = 'bold')
+# plt.tight_layout()
+# plt.show()
+
+study_hrs = np.random.uniform(2,10,50)
+marks = study_hrs*7+ np.random.normal(0,8,50)
+marks = np.clip(marks,30,100)
+
+plt.figure(figsize=(8,5))
+plt.scatter(study_hrs,marks,c = marks,cmap = 'RdYlGn', s = 100 ,alpha=0.8)
+plt.colorbar(label = 'Marks')
+plt.title('Study Hours VS Exam Marks')
+plt.xlabel('Study Hours/Day')
+plt.ylabel('Exam Marks')
+plt.show()
